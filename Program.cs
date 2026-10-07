@@ -5,15 +5,16 @@ List<sutemeny> lista = new List<sutemeny>();
 
 for (int i = 0; i < 4; i++)
 {
+    Console.WriteLine($"{i + 1}. sütemény adatai:");
     sutemeny peldany = new sutemeny();
 
-    Console.WriteLine("Név: ");
+    Console.Write("\tNév: ");
     string nev = Console.ReadLine();
 
-    Console.Write("Egységár: ");
+    Console.Write("\tEgységár (Ft): ");
     int egysegar = int.Parse(Console.ReadLine());
 
-    Console.Write("Raktáron lévő darabszám: ");
+    Console.Write("\tRaktáron lévő darabszám (db): ");
     int raktaronDb = int.Parse(Console.ReadLine());
 
     peldany.nev = nev;
@@ -21,6 +22,13 @@ for (int i = 0; i < 4; i++)
     peldany.raktaronDb = raktaronDb;
 
     lista.Add(peldany);
+}
+
+Console.WriteLine("\nPultban lévő ütemények:");
+for (int i = 0; i < lista.Count;i++)
+{
+
+    Console.WriteLine($"\t- {lista[i].nev}: {lista[i].egysegar} Ft/db ({lista[i].raktaronDb} db) -> Öszérték: {lista[i].egysegar * lista[i].raktaronDb} Ft");
 }
 
 int teljesKeszletErtek = 0;
@@ -31,7 +39,7 @@ for (int i = 0; i < lista.LongCount(); i++)
     
 }
 
-double atlag = teljesKeszletErtek / lista.LongCount();
+double atlag = (double)teljesKeszletErtek / (double)lista.LongCount();
 
 string statusz;
 
@@ -42,3 +50,6 @@ if (teljesKeszletErtek >= 40000)
 else if (teljesKeszletErtek >= 20000) statusz = "Átlagis feltöltöttség.";
 else statusz = "Alacsony készlet, utántöltés szükséges!";
 
+Console.WriteLine($"\nPult teljes készletértéke: {teljesKeszletErtek} Ft");
+Console.WriteLine($"Sütemények átlagos egységára: {Math.Round(atlag, 0)} Ft");
+Console.WriteLine($"Készlet státusza: {statusz}");
