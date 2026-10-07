@@ -32,14 +32,16 @@ for (int i = 0; i < lista.Count;i++)
 }
 
 int teljesKeszletErtek = 0;
+int osszdarab = 0;
 
 for (int i = 0; i < lista.LongCount(); i++)
 {
     teljesKeszletErtek += lista[i].egysegar * lista[i].raktaronDb;
+    osszdarab += lista[i].raktaronDb;
     
 }
 
-double atlag = (double)teljesKeszletErtek / (double)lista.LongCount();
+double atlag = (double)teljesKeszletErtek / (double)osszdarab;
 
 string statusz;
 
