@@ -22,3 +22,23 @@ for (int i = 0; i < 4; i++)
 
     lista.Add(peldany);
 }
+
+int teljesKeszletErtek = 0;
+
+for (int i = 0; i < lista.LongCount(); i++)
+{
+    teljesKeszletErtek += lista[i].egysegar * lista[i].raktaronDb;
+    
+}
+
+double atlag = teljesKeszletErtek / lista.LongCount();
+
+string statusz;
+
+if (teljesKeszletErtek >= 40000)
+{
+    statusz = "Bőséges kínálat!";
+}
+else if (teljesKeszletErtek >= 20000) statusz = "Átlagis feltöltöttség.";
+else statusz = "Alacsony készlet, utántöltés szükséges!";
+
