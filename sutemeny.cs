@@ -6,8 +6,8 @@ namespace CukraszdaNyilvantartas
 {
     internal class sutemeny
     {
-        string nev;
-        int egysegar;
-        int raktarinDb;
+        public string nev { get; set; }
+        public int egysegar { get; set; }
+        public int raktaronDb { get; set; }
     }
 }
